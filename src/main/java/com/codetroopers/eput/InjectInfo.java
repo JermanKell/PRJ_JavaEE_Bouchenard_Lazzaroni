@@ -16,7 +16,9 @@
 
 package com.codetroopers.eput;
 
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -26,8 +28,16 @@ import javax.persistence.PersistenceContext;
 public class InjectInfo {
     @PersistenceContext(name = "pu")
     EntityManager em;
+
     @Produces
-    EntityManager produceEntityManager(){
+    EntityManager produceEntityManager() {
         return em;
+    }
+
+
+    @Produces
+    @RequestScoped
+    public FacesContext getContext() {
+        return FacesContext.getCurrentInstance();
     }
 }

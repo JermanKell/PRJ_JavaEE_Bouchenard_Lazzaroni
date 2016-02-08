@@ -6,6 +6,7 @@ import com.codetroopers.eput.models.UserInfo;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -14,8 +15,8 @@ import java.io.Serializable;
 @ApplicationScoped
 public class AuthenticationService implements Serializable {
 
-//    @Inject
-//    FacesContext facesContext;
+    @Inject
+    FacesContext facesContext;
 
     /**
      * Login method checking if the supplied userInfo matches our condition on its password/nickname combination :
@@ -30,7 +31,7 @@ public class AuthenticationService implements Serializable {
             userInfo.setLoggedIn(true);
             return "success";
         }
-        FacesContext.getCurrentInstance().addMessage("Invalid credentials", new FacesMessage("Invalid credentials !"));
+        facesContext.addMessage("Invalid credentials", new FacesMessage("Invalid credentials !"));
         return null;
     }
 
@@ -40,7 +41,7 @@ public class AuthenticationService implements Serializable {
      * @return next path (with redirect)
      */
     public String logout() {
-//        facesContext.getExternalContext().invalidateSession();
+        facesContext.getExternalContext().invalidateSession();
         return "login" + "?faces-redirect=true";
     }
 
