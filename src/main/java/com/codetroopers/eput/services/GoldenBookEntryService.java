@@ -5,7 +5,9 @@ import com.codetroopers.eput.domain.entities.GoldenBookEntry;
 import com.codetroopers.eput.models.UserInfo;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 /**
@@ -24,6 +26,8 @@ public class GoldenBookEntryService {
 
     }
 
+    @Produces
+    @Named
     public List<GoldenBookEntry> loadGoldenBookEntries() {
         return bookEntryDAO.all();
     }
