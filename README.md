@@ -1,4 +1,6 @@
+## Start project
 
+    mvn clean package wildfly:run
 
 ## Debug SQL content
 
