@@ -28,7 +28,7 @@ import java.io.IOException;
  */
 //tag::class[]
 //tag::annot[]
-@WebServlet(urlPatterns = "/")
+@WebServlet(urlPatterns = "/counter")
 //end::annot[]
 public class MyServlet extends HttpServlet{
 
