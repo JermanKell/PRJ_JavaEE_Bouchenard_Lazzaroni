@@ -2,6 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
                 template="/WEB-INF/templates/default.xhtml">
 
     <ui:define name="content">
@@ -13,18 +14,18 @@
             <div class="control-group">
                 <label class="control-label" for="inputNickName">Username</label>
                 <div class="controls">
-                    <input id="inputNickName" placeholder="Username"/>
+                    <h:inputText a:placeholder="User name"/>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="inputPassword">Password</label>
                 <div class="controls">
-                    <input id="inputPassword" placeholder="Password"/>
+                    <h:inputSecret a:placeholder="Password"/>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <input type="button" class="btn" value="Log me in"/>
+                    <h:button value="Log me in" outcome="login" class="btn"/>
                 </div>
             </div>
         </h:form>
