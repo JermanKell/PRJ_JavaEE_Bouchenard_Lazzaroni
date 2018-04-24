@@ -14,18 +14,18 @@
             <div class="control-group">
                 <h:outputLabel class="control-label" for="inputNickName">Username</h:outputLabel>
                 <div class="controls">
-                    <h:inputText a:placeholder="User name"/>
+                    <h:inputText id="inputNickName" a:placeholder="Username"/>
                 </div>
             </div>
             <div class="control-group">
                 <h:outputLabel class="control-label" for="inputPassword">Password</h:outputLabel>
                 <div class="controls">
-                    <h:inputSecret a:placeholder="Password"/>
+                    <h:inputSecret id="inputPassword" a:placeholder="Password"/>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <h:button value="Log me in" outcome="login" class="btn"/>
+                    <h:commandButton value="Log me in" action="#{AuthenticationService.login}" class="btn"></h:commandButton>
                 </div>
             </div>
         </h:form>
